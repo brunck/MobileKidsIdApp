@@ -25,7 +25,7 @@ namespace MobileKidsIdApp.Models
             string fileName = FileReference.FileName;
             // we need to reconstruct the path at runtime because on iOS when rebuilding/redeploying the debug
             // app due to an actual source change, the OS renames the directory, specifically changing the application GUID part of the directory name. 
-            // So the photo files are there, but nested inside an applicaton directory with a new name.  
+            // So the photo files are there, but nested inside an application directory with a new name.  
             // Upon starting the new deployment of the rebuilt app, the saved pictures cannot be found and displayed by the app 
             // using the old directory path because the application directory has changed.
             var documentsPath = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);

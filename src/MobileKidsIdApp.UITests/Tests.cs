@@ -1,30 +1,21 @@
 ﻿using NUnit.Framework;
 using Xamarin.UITest;
+using Query = System.Func<Xamarin.UITest.Queries.AppQuery, Xamarin.UITest.Queries.AppQuery>;
 
 namespace MobileKidsIdApp.UITests
 {
     [TestFixture(Platform.Android)]
     [TestFixture(Platform.iOS)]
-    public class Tests
+    public class Tests : BaseTestFixture
     {
-        IApp app;
-        Platform platform;
-
-        public Tests(Platform platform)
+        public Tests(Platform platform) : base(platform)
         {
-            this.platform = platform;
-        }
-
-        [SetUp]
-        public void BeforeEachTest()
-        {
-            app = AppInitializer.StartApp(platform);
         }
 
         [Test]
         public void Repl()
         {
-            app.Repl();
+            AppManager.App.Repl();
         }
     }
 }
